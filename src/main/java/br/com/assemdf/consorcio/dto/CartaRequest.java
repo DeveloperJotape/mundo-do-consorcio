@@ -14,7 +14,8 @@ public record CartaRequest(
         Double saldoDevedorValorMensal,
         LocalDate dataVencimento,
         String observacao,
-        Administradora administradora) {
+        Administradora administradora,
+        Boolean status) {
 
     public CartaRequest(Carta carta) {
         this(
@@ -25,7 +26,8 @@ public record CartaRequest(
                 carta.getSaldoDevedorValorMensal(),
                 carta.getDataVencimento(),
                 carta.getObservacao(),
-                carta.getAdministradora());
+                carta.getAdministradora(),
+                carta.getStatus());
     }
 
 }

@@ -33,6 +33,7 @@ public class Carta {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Enumerated(EnumType.STRING)
     private TipoCarta tipoCarta;
 
     @Column(nullable = false)
@@ -56,6 +57,8 @@ public class Carta {
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private Administradora administradora;
+
+    private Boolean status = true;
 
     public Carta(CartaRequest carta) {
         this.tipoCarta = carta.tipoCarta();

@@ -15,7 +15,8 @@ public record CartaResponse(
         Double saldoDevedorValorMensal,
         LocalDate dataVencimento,
         String observacao,
-        Administradora administradora) {
+        Administradora administradora,
+        Boolean status) {
 
     public CartaResponse(Carta carta) {
         this(
@@ -27,7 +28,8 @@ public record CartaResponse(
                 carta.getSaldoDevedorValorMensal(),
                 carta.getDataVencimento(),
                 carta.getObservacao(),
-                carta.getAdministradora());
+                carta.getAdministradora(),
+                carta.getStatus());
     }
 
 }

@@ -58,6 +58,9 @@ public class CartaService {
             if (carta.getAdministradora() != null) {
                 carta.setAdministradora(cartaRequest.administradora());
             }
+            if (carta.getStatus() != null) {
+                carta.setStatus(cartaRequest.status());
+            }
             return new CartaResponse(cartaRepository.save(carta));
         }
         return null;
