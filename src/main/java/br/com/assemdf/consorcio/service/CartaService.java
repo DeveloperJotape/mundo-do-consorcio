@@ -34,6 +34,9 @@ public class CartaService {
         var idCarta = cartaRepository.findById(id);
         if (idCarta.isPresent()) {
             var carta = idCarta.get();
+            if (carta.getTipoCarta() != null) {
+                carta.setTipoCarta(cartaRequest.tipoCarta());
+            }
             if (carta.getCredito() != null) {
                 carta.setCredito(cartaRequest.credito());
             }

@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 import br.com.assemdf.consorcio.dto.CartaRequest;
 import br.com.assemdf.consorcio.enums.Administradora;
+import br.com.assemdf.consorcio.enums.TipoCarta;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -32,6 +33,8 @@ public class Carta {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private TipoCarta tipoCarta;
+
     @Column(nullable = false)
     private Double credito;
 
@@ -55,6 +58,7 @@ public class Carta {
     private Administradora administradora;
 
     public Carta(CartaRequest carta) {
+        this.tipoCarta = carta.tipoCarta();
         this.credito = carta.credito();
         this.entrada = carta.entrada();
         this.saldoDevedorQntdMeses = carta.saldoDevedorQntdMeses();

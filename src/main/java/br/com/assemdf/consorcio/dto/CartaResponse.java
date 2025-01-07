@@ -4,9 +4,11 @@ import java.time.LocalDate;
 
 import br.com.assemdf.consorcio.entity.Carta;
 import br.com.assemdf.consorcio.enums.Administradora;
+import br.com.assemdf.consorcio.enums.TipoCarta;
 
 public record CartaResponse(
         Long id,
+        TipoCarta tipoCarta,
         Double credito,
         Double entrada,
         Integer saldoDevedorQntdMeses,
@@ -18,6 +20,7 @@ public record CartaResponse(
     public CartaResponse(Carta carta) {
         this(
                 carta.getId(),
+                carta.getTipoCarta(),
                 carta.getCredito(),
                 carta.getEntrada(),
                 carta.getSaldoDevedorQntdMeses(),
